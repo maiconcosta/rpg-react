@@ -4,10 +4,12 @@ export const Container = styled.div<{
   charSize: number;
   left: number;
   top: number;
+  side: number;
 }>`
   width: ${(props) => props.charSize}px;
   height: ${(props) => props.charSize}px;
-  background: red;
+  background: url('../../src/assets/char.png') no-repeat;
+  background-position: 0px ${(props) => props.side}px;
   position: relative;
   left: ${(props) => props.left}px;
   top: ${(props) => props.top}px;
