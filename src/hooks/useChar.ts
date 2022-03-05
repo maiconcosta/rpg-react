@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import mapSpots from '../data/mapSpots';
 import SideType from '../types/SideType';
 
 const useChar = () => {
@@ -9,23 +10,49 @@ const useChar = () => {
 
   const [side, setSide] = useState<SideType>('down');
 
+  const canMove = (x: number, y: number) => {
+    if (mapSpots[y] !== undefined && mapSpots[y][x] !== undefined) {
+      if (mapSpots[y][x] === 1) {
+        return true;
+      }
+    }
+
+    return false;
+  };
+
   const moveTop = () => {
-    setPosition((oldPos) => ({ ...oldPos, y: oldPos.y - 1 }));
+    if (canMove(position.x, position.y - 1)) {
+      setPosition((oldPos) => ({
+        ...oldPos,
+        y: canMove(oldPos.x, oldPos.y - 1) ? oldPos.y - 1 : oldPos.y,
+      }));
+    }
     setSide('up');
   };
 
   const moveDown = () => {
-    setPosition((oldPos) => ({ ...oldPos, y: oldPos.y + 1 }));
+    setPosition((oldPos) => ({
+      ...oldPos,
+      y: canMove(oldPos.x, oldPos.y + 1) ? oldPos.y + 1 : oldPos.y,
+    }));
     setSide('down');
   };
 
   const moveLeft = () => {
-    setPosition((oldPos) => ({ ...oldPos, x: oldPos.x - 1 }));
+    if (canMove(position.x - 1, position.y)) {
+      setPosition((oldPos) => ({
+        ...oldPos,
+        x: canMove(oldPos.x - 1, oldPos.y) ? oldPos.x - 1 : oldPos.x,
+      }));
+    }
     setSide('left');
   };
 
   const moveRight = () => {
-    setPosition((oldPos) => ({ ...oldPos, x: oldPos.x + 1 }));
+    setPosition((oldPos) => ({
+      ...oldPos,
+      x: canMove(oldPos.x + 1, oldPos.y) ? oldPos.x + 1 : oldPos.x,
+    }));
     setSide('right');
   };
 
