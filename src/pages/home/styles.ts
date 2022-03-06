@@ -11,5 +11,5 @@ export const Container = styled.div`
 export const Map = styled.div`
   width: 512px;
   height: 512px;
-  background: url('../../src/assets/map-custom.png') no-repeat;
+  background: url('/assets/map-custom.png') no-repeat;
 `;
