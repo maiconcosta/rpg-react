@@ -5,7 +5,7 @@ import SideType from '../types/SideType';
 const useChar = () => {
   const [position, setPosition] = useState({
     x: 5,
-    y: 4,
+    y: 10,
   });
 
   const [side, setSide] = useState<SideType>('down');

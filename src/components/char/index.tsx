@@ -8,14 +8,14 @@ type Props = {
 };
 
 const sides = {
-  up: -90,
+  up: -96,
   down: 0,
-  left: -30,
-  right: -60,
+  left: -32,
+  right: -64,
 };
 
 const Char = ({ x, y, side }: Props) => {
-  const charSize = 30;
+  const charSize = 32;
 
   return (
     <S.Container

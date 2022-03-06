@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const Map = styled.div`
-  width: 480px;
-  height: 480px;
-  background: url('../../src/assets/map.png') no-repeat;
+  width: 512px;
+  height: 512px;
+  background: url('../../src/assets/map-custom.png') no-repeat;
 `;
