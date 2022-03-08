@@ -21,12 +21,11 @@ const useChar = () => {
   };
 
   const moveTop = () => {
-    if (canMove(position.x, position.y - 1)) {
-      setPosition((oldPos) => ({
-        ...oldPos,
-        y: canMove(oldPos.x, oldPos.y - 1) ? oldPos.y - 1 : oldPos.y,
-      }));
-    }
+    setPosition((oldPos) => ({
+      ...oldPos,
+      y: canMove(oldPos.x, oldPos.y - 1) ? oldPos.y - 1 : oldPos.y,
+    }));
+
     setSide('up');
   };
 
@@ -39,12 +38,11 @@ const useChar = () => {
   };
 
   const moveLeft = () => {
-    if (canMove(position.x - 1, position.y)) {
-      setPosition((oldPos) => ({
-        ...oldPos,
-        x: canMove(oldPos.x - 1, oldPos.y) ? oldPos.x - 1 : oldPos.x,
-      }));
-    }
+    setPosition((oldPos) => ({
+      ...oldPos,
+      x: canMove(oldPos.x - 1, oldPos.y) ? oldPos.x - 1 : oldPos.x,
+    }));
+
     setSide('left');
   };
 
